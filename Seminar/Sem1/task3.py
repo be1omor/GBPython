@@ -11,11 +11,17 @@
 # **Output:**
 # YES
 
-year = int(input('Введите год: '))
-if year%4 == 0:
-    if year%400 == 0:
-        print('Yes')
-    elif year%100 == 0:
-        print('No')
-    else: print('Yes')
-else: print('No')
+# year = int(input('Введите год: '))
+# if year%4 == 0:
+#     if year%400 == 0:
+#         print('Yes')
+#     elif year%100 == 0:
+#         print('No')
+#     else: print('Yes')
+# else: print('No')
+
+year = int(input('Введите год -> '))
+if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+    print(f'Год {year} високосный!')
+else:
+    print(f'Год {year} не високосный!')
