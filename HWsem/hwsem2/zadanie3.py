@@ -9,6 +9,6 @@ num = num1
 while num < n:
     num = num1
     num = num ** k
-    k+=1
     if num<n:
         print(f"{num1}^{k} = {num}")
+    k+=1
