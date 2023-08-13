@@ -9,9 +9,8 @@
 # Вывод:
 # 1, 3
 
-# list_1 = [int(i) for i in input().split]
-# почему не работает строка? >_<
-list_1 = [3, 4, 2, 5, 7]
+# list_1 = [3, 4, 2, 5, 7]
+list_1 = [int(i) for i in input().split()]
 min = 4
 max = 6
 ind = []
