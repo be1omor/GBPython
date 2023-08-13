@@ -10,12 +10,13 @@
 # 1, 3
 
 # list_1 = [3, 4, 2, 5, 7]
-list_1 = [int(i) for i in input().split()]
 min = 4
 max = 6
+list_1 = [int(i) for i in input().split()] # if min <= int(i) <= max]
+
 ind = []
 for i in range(len(list_1)):
     if min <= list_1[i] <= max:
-        a = i
-        ind.append(a)
+        ind.append(i)
 print(*ind)
+# print(list_1)
