@@ -20,6 +20,10 @@ def interface(file_name):
         interface(file_name)
     elif num == 5:
         file_name.close()
+    elif num == 6:
+        del_cont(file_name)
+        print()
+        interface(file_name)
     elif num == 9:
         del_all(file_name)
         print()
@@ -34,7 +38,7 @@ def text_interface():
     print("3 - Показать все контакты.")
     print("4 - Изменение контакта.")
     print("5 - Выход.")
-
+    print("6 - Удаление контакта.")
 
 
     print("9 - Удалить все данные.")

@@ -56,3 +56,20 @@ def del_all(file_name):
             file_name.write(a)
         file_name.close()
     file_name.close()
+
+def del_cont(file_name):
+    stri = input("Введите фамилию: ")
+    # new_str = str(input("Введите новые данные: "))
+    with open('phone_book.txt', 'r') as f:
+        lines = f.readlines()  
+    found = False
+    with open('phone_book.txt', 'w') as f:
+        for line in lines:
+            if stri in line:
+                found = True
+                line = line.replace(stri, "")
+            f.write(line)
+    if found:
+        print("Строка успешно удалена")
+    else:
+        print("Такого нет")
