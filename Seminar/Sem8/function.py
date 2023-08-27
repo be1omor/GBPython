@@ -13,15 +13,13 @@ def search_contact(file_name):
             break
     else: 
         print("\nТакого нет")
-        
         a = input("\nХотите добавить?(yes/no): ")
         if a == "yes":
             with open('phone_book.txt', 'a') as file_name:
-                file_name.write('\n'+ stri + " ")
+                file_name.write(stri + " ")
                 n = str(input("Добавьте номер телефона: "))
                 file_name.write(n + "\n")
             file_name.close()
-
     file_name.close()
 
 def show_all(file_name):
@@ -30,23 +28,44 @@ def show_all(file_name):
         print(line)
     file_name.close()
 
-def change_contact(file_name):
-    stri = input("Введите фамилию: ")
-    new_str = str(input("Введите новые данные: "))
+def change_contact():
     with open('phone_book.txt', 'r') as f:
-        lines = f.readlines()  
-    found = False
-    with open('phone_book.txt', 'w') as f:
-        for line in lines:
-            if stri in line:
-                found = True
-                line = line.replace(stri, new_str)
-            f.write(line)
-    if found:
-        print("Строка успешно изменена")
-    else:
-        print("Такого нет")
-
+        lines = f.readlines()
+    print("Что хотите изменить?")
+    print("1 - Только имя или номер.")
+    print("2 - И имя и номер.")
+    num = int(input())
+    if num == 1:
+        stri = input("Введите фамилию контакта или номер который хотите изменить: ")
+        found = False
+        with open('phone_book.txt', 'w') as f:
+            new_str = str(input("Введите новые данные: "))
+            for line in lines:
+                if stri in line:
+                    found = True
+                    line = line.replace(stri, new_str)
+                f.write(line)
+        if found:
+            print("Контакт успешно изменен.")
+        else:
+            print("Такого нет")
+    elif num == 2:
+        stri = input("Введите фамилию контакта который хотите изменить: ")
+        found = False
+        with open('phone_book.txt', 'w') as f:
+            new_str = str(input("Введите новые данные (имя и телефон): ")+'\n')
+            for line in lines:
+                if stri in line:
+                    found = True
+                    stri = line
+                    line = line.replace(stri, new_str)
+                f.write(line)
+        if found:
+            print("Строка успешно изменена")
+        else:
+            print("Такого нет")
+    else: 
+        print("Ошибка.")
 
 def del_all(file_name):
     mess = str(input("Вы уверены?(yes/no) "))
@@ -57,9 +76,8 @@ def del_all(file_name):
         file_name.close()
     file_name.close()
 
-def del_cont(file_name):
+def del_cont():
     stri = input("Введите фамилию: ")
-    # new_str = str(input("Введите новые данные: "))
     with open('phone_book.txt', 'r') as f:
         lines = f.readlines()  
     found = False
@@ -67,6 +85,7 @@ def del_cont(file_name):
         for line in lines:
             if stri in line:
                 found = True
+                stri = line
                 line = line.replace(stri, "")
             f.write(line)
     if found:
